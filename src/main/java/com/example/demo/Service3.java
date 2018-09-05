@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-@CacheConfig(cacheNames = "cache3", cacheManager = "cache2")
 public class Service3 implements ValueGetter {
 
-    @Cacheable
+    //You can somewhat avoid magic strings with a custom annotation, but usage may be low anyway.
+    @Cache3
     public Integer getValue(Integer value) {
         log.info("Service3 GetValue {}", value);
         if (value == null) return null;
