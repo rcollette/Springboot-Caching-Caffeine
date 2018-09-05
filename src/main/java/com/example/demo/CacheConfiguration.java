@@ -15,7 +15,8 @@ public class CacheConfiguration extends CachingConfigurerSupport {
     public CaffeineCacheManager cache1() {
         CaffeineCacheManager cacheManager = new CaffeineCacheManager("cache1");
         cacheManager.setAllowNullValues(false);
-        Caffeine<Object, Object> builder = Caffeine.newBuilder();
+        Caffeine<Object, Object> builder = Caffeine.newBuilder()
+                .maximumSize(5);
         cacheManager.setCaffeine(builder);
         return cacheManager;
     }
