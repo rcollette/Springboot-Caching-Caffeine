@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @CacheConfig(cacheNames = "cache2", cacheManager = "cache2")
 public class Service2 implements ValueGetter {
 
-    @Cacheable
+    @Cacheable(key="{#value, 100}")
     public Integer getValue(Integer value) {
         log.info("Service2 GetValue {}", value);
         return value;
